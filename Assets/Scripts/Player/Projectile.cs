@@ -26,7 +26,11 @@ public class Projectile : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag != "Coin" || collision.tag != "Health")
+        if (collision.tag == "Coin" || collision.tag == "Health" || collision.tag == "StationaryEnemy")
+        {
+            
+        }
+        else
         {
             hit = true;
             boxCollider.enabled = false;

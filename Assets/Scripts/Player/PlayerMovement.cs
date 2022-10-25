@@ -25,8 +25,8 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-        //horizontalInput = fixedJoystick.Horizontal;
+        //horizontalInput = Input.GetAxis("Horizontal");
+        horizontalInput = fixedJoystick.Horizontal;
         
 
         //Oyuncuyu saga sola donerken yonunu cevirme.

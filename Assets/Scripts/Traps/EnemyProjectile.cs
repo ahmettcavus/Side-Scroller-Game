@@ -36,14 +36,22 @@ public class EnemyProjectile : EnemyDamage
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        hit = true;
-        base.OnTriggerEnter2D(collision); //Execute logic from parent script first
-        coll.enabled = false;
+        if (collision.tag == "Coin" || collision.tag == "Health" || collision.tag == "StationaryEnemy")
+        {
 
-        if (anim != null)
-            anim.SetTrigger("explode"); //When the object is a fireball explode it
+        }
         else
-            gameObject.SetActive(false); //When this hits any object deactivate arrow
+        {
+            hit = true;
+            base.OnTriggerEnter2D(collision); //Execute logic from parent script first
+            coll.enabled = false;
+
+            if (anim != null)
+                anim.SetTrigger("explode"); //When the object is a fireball explode it
+            else
+                gameObject.SetActive(false); //When this hits any object deactivate arrow
+        }
+       
     }
     private void Deactivate()
     {
